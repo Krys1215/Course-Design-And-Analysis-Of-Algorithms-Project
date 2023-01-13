@@ -1,8 +1,9 @@
+
 **1. Original Scenario**
 
 As all our team members are international students living outside the campus and do not own any car. Therefore, the school bus has been our main transportation tool, the bus line which is called “South City Line”. The original route of the “South City Line” is from the campus to Mutiara Residence, Univ360 Residence, South City Plaza, East Lake Residence, Sky Villa Residence, KTM Serdang, and turn back to the campus. It is believed that all the bus takers have experienced the traffic jam during the route around South City Plaza. Generally, there are certain number of international students are living near to the KTM Serdang, The Mines Resort, the traffic jam of the route from the campus to KTM Serdang is not heavy, and we can find it when we take the Grab ride. Moreover, there is a Free Bus line of Rapid KL called “SJ04”, which is covering the route from KTM Serdang to our campus, and it is our second plan to travel from home to campus, the passengers can tell the driver what their destinations are, and the driver can adjust the route by themselves. The drivers would love to avoid the route around South City Plaza to avoid the terrible traffic jam. The action the drivers took really inspired us, and we decide to do some improvements.
 
-![图形用户界面, 文本, 应用程序 描述已自动生成](media/4bf09740bc412449be493c0f8d8578f0.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/1.png)
 
 *Figure 1 “South City” bus line schedule*
 
@@ -100,13 +101,13 @@ This problem definition provides a clear and precise understanding of the proble
 
 **5.2 Development of model**
 
-![地图 描述已自动生成](media/200e39c99e1547e97e3a8371cf1203cf.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/2.png)
 
 *Figure 2 The stations stated on the Google Maps*
 
 As the Figure 2 shown above, are the stations that the settled bus line will travel. Since the algorithm that we decided to implement is TSP, therefore we need to collect the distances of every destination to each destination. Then, we extract the abstract graph with the distances that calculated by the Google Maps stated as the figure shown below.
 
-![图示 描述已自动生成](media/11432b284d498c6234fc4d434ac8eb2c.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/3.png)
 
 *Figure 3 The extracted graph with the distance in meter*
 
@@ -114,7 +115,7 @@ The default starting point is setting as FSKTM and be the ending point. The core
 
 The data structure will be Array List and store the stops information that conclude the distance from this stop to others. The basic data structure will be initialized as below in the format of binary array:
 
-![电脑萤幕画面 描述已自动生成](media/d3565215cdb7923d32863d210a313ab3.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/4.png)
 
 *Figure 4 The Array that contains the distance and the indexes of the stops*
 
@@ -126,15 +127,15 @@ The TSP can be formulated as an integer linear program. Several formulations are
 
 Common to both these formulations is that one labels the cities with the numbers 1,……,n and takes Cij \> 0 to be the cost (distance) from city i to city j. The main variables in the formulations are:
 
-![](media/ea97a79137bbc3c3cb3e79bdc15f3a0f.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/5.png)
 
 It is because these are 0/1 variables that the formulations become integer programs; all other constraints are purely linear. In particular, the objective in the program is to minimize the tour length:
 
-![](media/24e510fe0140473be56b74bb5071ac3f.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/6.png)
 
-Without further constraints, the ![](media/e643dcaf4d6164a2b40d4a53fc4e40ce.png) will however effectively range over all subsets of the set of edges, which is very far from the sets of edges in a tour and allows for a trivial minimum where all Xij = 0. Therefore, both formulations also have the constraints that there at each vertex is exactly one incoming edge and one outgoing edge, which may be expressed as the 2n linear equations.
+Without further constraints, the ![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/7.png) will however effectively range over all subsets of the set of edges, which is very far from the sets of edges in a tour and allows for a trivial minimum where all Xij = 0. Therefore, both formulations also have the constraints that there at each vertex is exactly one incoming edge and one outgoing edge, which may be expressed as the 2n linear equations.
 
-![图片包含 图示 描述已自动生成](media/46feeffa690b167db17aab99957f2608.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/8.png)
 
 These ensure that the chosen set of edges locally looks like that of a tour, but still allow for solutions violating the global requirement that there is one tour which visits all vertices, as the edges chosen could make up several tours each visiting only a subset of the vertices; arguably it is this global requirement that makes TSP a hard problem. The MTZ and DFJ formulations differ in how they express this final requirement as linear constraints.
 
@@ -160,19 +161,19 @@ The TSP algorithm is a recursive algorithm that generates all possible routes an
 
 Below is the pseudocode implementation.
 
-![文本 描述已自动生成](media/379af334d992e42075abeab411eea33e.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/9.png)
 
-![文本 描述已自动生成](media/1885be91437770460166ad537920d76a.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/10.png)
 
 **5.4 Designing an Algorithm**
 
 In order to satisfy the requirements of our bus route designing problem, we need to modify the TSP algorithm to apply the algorithm in Java.
 
-![文本 描述已自动生成](media/1b57ce11a1ec833aec6aec456d3ec55d.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/11.png)
 
 This code shows the procedure of the initialization of the data structures and the instance. The variables of the data structure need to be sign as the specific value. As we mentioned before. For example, the graph will be extracted as a binary array. The best paths will be stored in an Integer List.
 
-![文本 描述已自动生成](media/6595012b4ba1fe8cb69c07b04ab41f41.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/12.png)
 
 1\. Firstly, the calling of the algorithm is beginning with the method “tsp()”, we consider it as the “trigger” of this algorithm. It adds the first stop (index “0”) to the bestPath List, and then call the “travel()” method. The values included inside this method are: index of the stops, count number of the recursive, total distance, the path that have traveled for one execution.
 
@@ -188,11 +189,11 @@ This code shows the procedure of the initialization of the data structures and t
 
 After the implementation of the graph that we extracted, the result is below:
 
-![图片包含 图形用户界面 描述已自动生成](media/a4b6d40c069d7bc5956bc90ee137782c.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/13.png)
 
 The implementation design will be explained later in the next 5.6 section. Ignoring the implementation of this design, according to the graph that we extracted, the shortest path that we choose by our hands is below:
 
-![图表, 雷达图 描述已自动生成](media/5854d9d7e0a0deac2d8a01f320713b76.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/14.png)
 
 Which exactly the same with the original route design of our school bus and the output of our program.
 
@@ -200,21 +201,21 @@ Which exactly the same with the original route design of our school bus and the 
 
 According to the initial thought that we came up with in the first part of our report, we wanted to develop an application that allows students or the bus takers to make the bus appointment at the period of time before the departure of the bus. Therefore, we involve the function to let the user to input “1” if there are any passengers intend to take the bus, “0” means there is no passenger call for the application and the bus will not consider to pass the stop.
 
-![文本 描述已自动生成](media/9c9972b4bb745c0a975007cf7f9fa373.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/15.png)
 
 In order to make it easier to store the stop information, we create a class to store all the bus stops’ information:
 
 It concludes the name of the station, for us to print out the name in the later output section. The index is to set the index of the stop, to match with the distance from “index to index”. The array of distance is to record the distances from the current station to others’ distance.
 
-![文本 描述已自动生成](media/3d2c26f0167656a3450820a7300b2e3a.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/16.png)
 
 This method is to create an Array List to store all the information of all the stations.
 
-![文本 描述已自动生成](media/995db4f1486f5d069139ec9b2dc5819c.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/17.png)
 
 For the passengerCall() method, is to store the calling value from the passengers, and store all the request into an array, in order to match the index of the stops. “1” for there is passenger, and “0” for no passenger.
 
-![文本 描述已自动生成](media/7e21b8a0413b4e5f6878d3f06dad8ff4.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/18.png)
 
 Here is the most interesting part of the implementation, which I designed by myself to call the stations.
 
@@ -230,7 +231,7 @@ Let’s say, if there is only one station and the station’s index is 1 that ha
 
 Then, I need to remain the index of 0, and pick up the index 1 for the outer loop of the execution. Moreover, I need to pick up the inner loop of every value in index of 1 and 0, to be the “dynamicSelection”.
 
-![文本 描述已自动生成](media/a741bbf577661ec0b5b407b95a8de4b4.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/19.png)
 
 The main method, to call out all the methods and operate the program.
 
@@ -244,13 +245,13 @@ The output formation will be print out the destinations one by one and finally p
 
 As the assumption that we made, the route only travel through the “green lines”, will be less likely to experience the traffic jam, and the first test will be selecting a destination that is only connected with the “green lines”, for example, Starting point, SPE, and KTM Serdang.
 
-![文本 描述已自动生成](media/20cc36a9078f4ee9e80196d7c264c333.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/20.png)
 
 The output is totally correct and satisfying with our assumption.
 
 Another example of the testing will be only select the stations that connect with the red lines:
 
-![文本 描述已自动生成](media/1900c637a018f54a97adf4d80ee7edfb.png)
+![](https://github.com/Krys1215/Course-Design-And-Analysis-Of-Algorithms-Project/blob/main/21.png)
 
 The output is correct as well, and it indeed follow the shortest path.
 
