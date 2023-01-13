@@ -1,2 +1,2 @@
-# DESIGN_AND_ANALYSIS_OF_ALGORITHMS_PROJECT
+# Course_Design_And_Analysis_Of_Algorithms_Project
 Course Final Project.
